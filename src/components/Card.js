@@ -9,7 +9,7 @@ const Card = ({item, navigation}) => {
             source = {item.background}
             style = {styles.imageBackground}
         >
-            <Pressable onPress = {() => navigation.navigate("Shared Album", {
+            <Pressable onPress = {() => navigation.navigate("Shared Albums", {
                 album: item
             })}>
                 <View style = {styles.imageContentContainer}>
