@@ -8,13 +8,14 @@ const Welcome = ({navigation}) => {
             <View style = {styles.InnerContainer}>
                 <Image style = {styles.PageLogo} resizeMode = "cover" source = {require('./../../assets/images/logo.png')} />
                 <Text style = {styles.PageTitle}>Shutter</Text>
+                <Text style = {styles.TagLine}>Social Media for Photographers</Text>
             </View>
 
-            <Pressable style = {styles.LoginButton}onPress = {() => navigation.navigate('Login')}>
+            <Pressable style = {styles.LoginButton} onPress = {() => navigation.navigate('Login')}>
                 <Text style = {styles.LoginText}>Login</Text>
             </Pressable>
 
-            <Pressable style = {styles.SignupButton}onPress = {() => navigation.navigate('Sign Up')}>
+            <Pressable style = {styles.SignupButton} onPress = {() => navigation.navigate('Sign Up')}>
                 <Text style = {styles.SignupText}>Sign Up</Text>
             </Pressable>
         </View>
@@ -40,6 +41,10 @@ const styles = StyleSheet.create({
     PageTitle: {
         ...theme.textVariants.h1,
         marginTop: theme.spacing.m,
+    },
+    TagLine: {
+        ...theme.textVariants.body3,
+
     },
     LoginButton: {
         flexDirection: 'row',
