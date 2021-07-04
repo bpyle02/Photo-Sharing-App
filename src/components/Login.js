@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, Pressable, TextInput } from 'react-native';
+import { StyleSheet, View, Text, Image, Pressable, TextInput, TouchableOpacity } from 'react-native';
 import theme from '../../assets/themes';
 import { Formik } from 'formik';
-import { Octicons } from '@expo/vector-icons';
+import { Octicons, Fontisto } from '@expo/vector-icons';
+import Separator from './Separator';
 
 const Login = ({navigation}) => {
     return (
@@ -44,6 +45,26 @@ const Login = ({navigation}) => {
                             value = {values.password}
                             secureTextEntry = {true}
                         />
+
+                        <Text style = {styles.msgBox}>...</Text>
+
+                        <TouchableOpacity onPress = {handleSubmit} style = {styles.loginButton}>
+                            <Text style = {styles.loginButtonText}>Login</Text>
+                        </TouchableOpacity>
+
+                        <Separator />
+
+                        <TouchableOpacity onPress = {handleSubmit} style = {styles.googleSigninButton}>
+                            <Fontisto name = "google" color = {theme.colors.white} size = {25} ></Fontisto>
+                            <Text style = {styles.googleSigninButtonText}>Sign in with Google</Text>
+                        </TouchableOpacity>
+
+                        <View style = {styles.signupLinkView}>
+                            <Text style = {styles.signupText}>Don't have an account? </Text>
+                            <TouchableOpacity style = {styles.signupLinkButton}>
+                                <Text style = {styles.signupLinkText}>Sign up</Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 )}
             </Formik>
@@ -107,6 +128,51 @@ const styles = StyleSheet.create({
         paddingLeft: 50,
         paddingRight: theme.spacing.l,
         borderRadius: theme.borderRadius.m,
+    },
+    loginButton: {
+        backgroundColor: theme.colors.primary,
+        alignItems: 'center',
+        marginTop: 20,
+        paddingVertical: 8,
+        borderRadius: theme.borderRadius.m,
+    },
+    loginButtonText: {
+        ...theme.textVariants.body2,
+        color: theme.colors.white,
+    },
+    msgBox: {
+        ...theme.textVariants.body3,
+        alignSelf: 'center',
+    },
+    googleSigninButton: {
+        backgroundColor: theme.colors.primary,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 16,
+        paddingVertical: 8,
+        borderRadius: theme.borderRadius.m,
+    },
+    googleSigninButtonText: {
+        ...theme.textVariants.body2,
+        color: theme.colors.white,
+        paddingLeft: '25px',
+    },
+    signupLinkView: {
+        justifyContent: 'center',
+        flexDirection: 'row',
+        alignItems: 'center',
+        padding: theme.spacing.sm,
+    },
+    signupText: {
+        ...theme.textVariants.body3,
+    },
+    signupLinkButton: {
+
+    },
+    signupLinkText: {
+        ...theme.textVariants.body3,
+        opacity: 0.6,
     },
 })
 
