@@ -1,101 +1,104 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, Pressable, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
 import theme from '../../assets/themes';
 import { Formik } from 'formik';
-import { Octicons, Fontisto } from '@expo/vector-icons';
+import { Octicons } from '@expo/vector-icons';
 import Separator from './Separator';
+import KeyboardAvoidingWrapper from './KeyboardAvoidingWrapper';
 
 const SignUp = ({navigation}) => {
     return (
-        <View>
-            <View style = {styles.StyledContainer}>
-                <View style = {styles.InnerContainer}>
-                    <Image style = {styles.PageLogo} resizeMode = "cover" source = {require('./../../assets/images/logo.png')} />
-                    <Text style = {styles.PageTitle}>Shutter</Text>
-                    <Text style = {styles.TagLine}>Social Media for Photographers</Text>
-                </View>
-            </View>
-
-            <Formik
-            initialValues = {{fullname: '', email: '', username: '', password: '', confirmPassword: ''}}
-            onSubmit = {(values) => {
-                console.log(values);
-            }}
-            >
-                {({handleChange, handleBlur, handleSubmit, values}) => (
-                    <View style = {styles.styledFormArea}>
-                        <MyTextInput
-                            label = "Name"
-                            icon = "person"
-                            placeholder = "John Doe"
-                            placeholderTextColor = {theme.colors.black}
-                            onChangeText = {handleChange('fullName')}
-                            onBlur = {handleBlur('fullName')}
-                            value = {values.fullName}
-                        />
-
-                        <MyTextInput
-                            label = "Email"
-                            icon = "mail"
-                            placeholder = "email@email.com"
-                            placeholderTextColor = {theme.colors.black}
-                            onChangeText = {handleChange('email')}
-                            onBlur = {handleBlur('email')}
-                            value = {values.email}
-                            keyboardType = "email-address"
-                        />
-
-
-                        <MyTextInput
-                            label = "Username"
-                            icon = "profile"
-                            placeholder = "username"
-                            placeholderTextColor = {theme.colors.black}
-                            onChangeText = {handleChange('username')}
-                            onBlur = {handleBlur('username')}
-                            value = {values.username}
-                        />
-
-                        <MyTextInput
-                            label = "Password"
-                            icon = "lock"
-                            placeholder = "password"
-                            placeholderTextColor = {theme.colors.black}
-                            onChangeText = {handleChange('password')}
-                            onBlur = {handleBlur('password')}
-                            value = {values.password}
-                            secureTextEntry = {true}
-                        />
-
-                        <MyTextInput
-                            label = "Confirm Password"
-                            icon = "lock"
-                            placeholder = "retype password"
-                            placeholderTextColor = {theme.colors.black}
-                            onChangeText = {handleChange('confirmPassword')}
-                            onBlur = {handleBlur('confirmPassword')}
-                            value = {values.confirmPassword}
-                            secureTextEntry = {true}
-                        />
-
-                        <Text style = {styles.msgBox}>...</Text>
-
-                        <TouchableOpacity onPress = {handleSubmit} style = {styles.loginButton}>
-                            <Text style = {styles.loginButtonText}>Sign Up</Text>
-                        </TouchableOpacity>
-
-                        <Separator />
-
-                        <View style = {styles.signupLinkView}>
-                            <Text style = {styles.signupText}>Already have an account? </Text>
-                            <TouchableOpacity style = {styles.signupLinkButton}>
-                                <Text style = {styles.signupLinkText}>Login</Text>
-                            </TouchableOpacity>
-                        </View>
+        <KeyboardAvoidingWrapper>
+            <View>
+                <View style = {styles.StyledContainer}>
+                    <View style = {styles.InnerContainer}>
+                        <Image style = {styles.PageLogo} resizeMode = "cover" source = {require('./../../assets/images/logo.png')} />
+                        <Text style = {styles.PageTitle}>Shutter</Text>
+                        <Text style = {styles.TagLine}>Social Media for Photographers</Text>
                     </View>
-                )}
-            </Formik>
-        </View>
+                </View>
+
+                <Formik
+                initialValues = {{fullname: '', email: '', username: '', password: '', confirmPassword: ''}}
+                onSubmit = {(values) => {
+                    console.log(values);
+                }}
+                >
+                    {({handleChange, handleBlur, handleSubmit, values}) => (
+                        <View style = {styles.styledFormArea}>
+                            <MyTextInput
+                                label = "Name"
+                                icon = "person"
+                                placeholder = "John Doe"
+                                placeholderTextColor = {theme.colors.black}
+                                onChangeText = {handleChange('fullName')}
+                                onBlur = {handleBlur('fullName')}
+                                value = {values.fullName}
+                            />
+
+                            <MyTextInput
+                                label = "Email"
+                                icon = "mail"
+                                placeholder = "email@email.com"
+                                placeholderTextColor = {theme.colors.black}
+                                onChangeText = {handleChange('email')}
+                                onBlur = {handleBlur('email')}
+                                value = {values.email}
+                                keyboardType = "email-address"
+                            />
+
+
+                            <MyTextInput
+                                label = "Username"
+                                icon = "person"
+                                placeholder = "username"
+                                placeholderTextColor = {theme.colors.black}
+                                onChangeText = {handleChange('username')}
+                                onBlur = {handleBlur('username')}
+                                value = {values.username}
+                            />
+
+                            <MyTextInput
+                                label = "Password"
+                                icon = "lock"
+                                placeholder = "password"
+                                placeholderTextColor = {theme.colors.black}
+                                onChangeText = {handleChange('password')}
+                                onBlur = {handleBlur('password')}
+                                value = {values.password}
+                                secureTextEntry = {true}
+                            />
+
+                            <MyTextInput
+                                label = "Confirm Password"
+                                icon = "lock"
+                                placeholder = "retype password"
+                                placeholderTextColor = {theme.colors.black}
+                                onChangeText = {handleChange('confirmPassword')}
+                                onBlur = {handleBlur('confirmPassword')}
+                                value = {values.confirmPassword}
+                                secureTextEntry = {true}
+                            />
+
+                            <Text style = {styles.msgBox}>...</Text>
+
+                            <TouchableOpacity onPress = {() => navigation.navigate('Signup Options')} style = {styles.loginButton}>
+                                <Text style = {styles.loginButtonText}>Sign Up</Text>
+                            </TouchableOpacity>
+
+                            <Separator />
+
+                            <View style = {styles.signupLinkView}>
+                                <Text style = {styles.signupText}>Already have an account? </Text>
+                                <TouchableOpacity style = {styles.signupLinkButton}>
+                                    <Text style = {styles.signupLinkText}>Login</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    )}
+                </Formik>
+            </View>
+        </KeyboardAvoidingWrapper>
     );
 };
 
@@ -117,6 +120,7 @@ const styles = StyleSheet.create({
         padding: theme.spacing.m,
         paddingTop: theme.spacing.l,
         backgroundColor: theme.colors.white,
+        marginTop: 20,
     },
     InnerContainer: {
         justifyContent: 'center',
@@ -125,7 +129,6 @@ const styles = StyleSheet.create({
     PageLogo: {
         width: 100,
         height: 100,
-        marginTop: 60,
     },
     PageTitle: {
         ...theme.textVariants.h1,
@@ -142,12 +145,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         marginHorizontal: theme.spacing.l,
         borderRadius: theme.borderRadius.m,
-        marginTop: 26,
+        marginTop: 40,
     },
     leftIcon: {
         position: 'absolute',
-        left: '12px',
-        top: '22px',
+        zIndex: 1,
+        marginTop: 28,
+        marginLeft: 12,
     },
     styledTextInput: {
         ...theme.textVariants.body3,
