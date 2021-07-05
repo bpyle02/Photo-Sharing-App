@@ -28,15 +28,14 @@ const styles = StyleSheet.create({
         padding: theme.spacing.m,
         paddingTop: theme.spacing.l,
         backgroundColor: theme.colors.white,
+        justifyContent: 'center', 
     },
     InnerContainer: {
-        justifyContent: 'center',
         alignItems: 'center',
     },
     PageLogo: {
         width: 100,
         height: 100,
-        marginTop: 100,
     },
     PageTitle: {
         ...theme.textVariants.h1,

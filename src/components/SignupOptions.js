@@ -4,8 +4,9 @@ import theme from '../../assets/themes';
 import { Formik } from 'formik';
 import { Octicons } from '@expo/vector-icons';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import { NavigationContainer } from '@react-navigation/native';
 
-const SignupOptions = () => {
+const SignupOptions = ({navigation}) => {
 
     const [show, setShow] = useState(false);
     const [date, setDate] = useState(new Date(2000, 0, 1));
@@ -46,6 +47,7 @@ const SignupOptions = () => {
             initialValues = {{phone: '', DOB: ''}}
             onSubmit = {(values) => {
                 console.log(values);
+                navigation.navigate('Profile')
             }}
             >
                 {({handleChange, handleBlur, handleSubmit, values}) => (
@@ -107,7 +109,7 @@ const styles = StyleSheet.create({
         padding: theme.spacing.m,
         paddingTop: theme.spacing.l,
         backgroundColor: theme.colors.white,
-        marginTop: 100,
+        marginTop: 160,
     },
     InnerContainer: {
         justifyContent: 'center',
@@ -125,14 +127,14 @@ const styles = StyleSheet.create({
         ...theme.textVariants.body3,
 
     },
+    inputFieldView: {
+        marginTop: 12,
+    },
     styledFormArea: {
         justifyContent: 'center',
         marginHorizontal: theme.spacing.l,
         borderRadius: theme.borderRadius.m,
         marginTop: 120,
-    },
-    inputFieldView: {
-        marginTop: 12,
     },
     leftIcon: {
         position: 'absolute',

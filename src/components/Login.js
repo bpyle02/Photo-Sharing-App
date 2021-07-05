@@ -6,7 +6,7 @@ import { Octicons, Fontisto } from '@expo/vector-icons';
 import Separator from './Separator';
 import KeyBoardAvoidingWrapper from './KeyboardAvoidingWrapper';
 
-const Login = () => {
+const Login = ({navigation}) => {
     return (
         <KeyBoardAvoidingWrapper>
             <View>
@@ -22,6 +22,7 @@ const Login = () => {
                 initialValues = {{email: '', password: ''}}
                 onSubmit = {(values) => {
                     console.log(values);
+                    navigation.navigate('Feed');
                 }}
                 >
                     {({handleChange, handleBlur, handleSubmit, values}) => (
@@ -64,7 +65,7 @@ const Login = () => {
                             <View style = {styles.signupLinkView}>
                                 <Text style = {styles.signupText}>Don't have an account? </Text>
                                 <TouchableOpacity style = {styles.signupLinkButton}>
-                                    <Text style = {styles.signupLinkText}>Sign up</Text>
+                                    <Text onPress = {() => navigation.navigate('Sign Up')} style = {styles.signupLinkText}>Sign up</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>
@@ -93,7 +94,7 @@ const styles = StyleSheet.create({
         padding: theme.spacing.m,
         paddingTop: theme.spacing.l,
         backgroundColor: theme.colors.white,
-        marginTop: 40,
+        marginTop: 80,
     },
     InnerContainer: {
         justifyContent: 'center',

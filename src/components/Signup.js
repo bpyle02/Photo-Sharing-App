@@ -22,6 +22,7 @@ const SignUp = ({navigation}) => {
                 initialValues = {{fullname: '', email: '', username: '', password: '', confirmPassword: ''}}
                 onSubmit = {(values) => {
                     console.log(values);
+                    navigation.navigate('Signup Options')
                 }}
                 >
                     {({handleChange, handleBlur, handleSubmit, values}) => (
@@ -82,7 +83,7 @@ const SignUp = ({navigation}) => {
 
                             <Text style = {styles.msgBox}>...</Text>
 
-                            <TouchableOpacity onPress = {() => navigation.navigate('Signup Options')} style = {styles.loginButton}>
+                            <TouchableOpacity onPress = {handleSubmit} style = {styles.loginButton}>
                                 <Text style = {styles.loginButtonText}>Sign Up</Text>
                             </TouchableOpacity>
 
@@ -91,7 +92,7 @@ const SignUp = ({navigation}) => {
                             <View style = {styles.signupLinkView}>
                                 <Text style = {styles.signupText}>Already have an account? </Text>
                                 <TouchableOpacity style = {styles.signupLinkButton}>
-                                    <Text style = {styles.signupLinkText}>Login</Text>
+                                    <Text onPress = {() => navigation.navigate('Login')} style = {styles.signupLinkText}>Login</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>
@@ -120,7 +121,7 @@ const styles = StyleSheet.create({
         padding: theme.spacing.m,
         paddingTop: theme.spacing.l,
         backgroundColor: theme.colors.white,
-        marginTop: 20,
+        marginTop: 80,
     },
     InnerContainer: {
         justifyContent: 'center',
