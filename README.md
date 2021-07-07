@@ -1,13 +1,15 @@
-<h1 align="center">Photo Sharing App UI</h1>
+<h1 align="center">Photo Sharing App</h1>
 
-### Accessing the code
+### What is this app?
+This photo sharing app is a social media pplication created with photographers in mind. Many social media apps used by photographers lack the features they need to run their photography business and connect with both clients and other photographers. This app aims to fix that problem. Check out the feature list below to see all the planned features this app will include.
 
-- To get the *starter code*, clone the main branch.
-- To get the *completed code*, clone the "completed" branch.
 
-### Design
 
-<a href="https://www.figma.com/file/jKrTKKXtPBuAsMAYePaKF7/Photo-Sharing-App-UI?node-id=0%3A1" target="_blank">Click here to view the Figma designs.</a>
+### Feature List
 
-### Mockup
-<img src="./mockup.png" />
+<ul>
+  <li>Photo Galleries</li>
+  <li>Familiar but fresh UI design</li>
+  <li>Contact page for photographers to recieve booking requests</li>
+  <li>Chronological Feed</li>
+</ul>
