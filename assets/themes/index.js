@@ -38,6 +38,7 @@ const theme = {
   borderRadius: {
     xs: 1,
     m: 10,
+    xl: 40,
   },
   imageHeight: {
     xs: 40,

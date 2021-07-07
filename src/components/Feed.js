@@ -5,7 +5,7 @@ import theme from '../../assets/themes';
 const Feed = () => {
     return (
         <View>
-            <Text>This is the feed</Text>
+            <Text>FEED PAGE</Text>
         </View>
     )
 }

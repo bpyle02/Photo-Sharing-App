@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image, Pressable } from 'react-native';
 import theme from '../../assets/themes';
+import { LoginScreenNavigator } from '../navigation';
 
 const Welcome = ({navigation}) => {
     return (
@@ -11,11 +12,11 @@ const Welcome = ({navigation}) => {
                 <Text style = {styles.TagLine}>Social Media for Photographers</Text>
             </View>
 
-            <Pressable style = {styles.LoginButton} onPress = {() => navigation.navigate('Login')}>
+            <Pressable style = {styles.LoginButton} onPress = {() => navigation.navigate("Login")}>
                 <Text style = {styles.LoginText}>Login</Text>
             </Pressable>
 
-            <Pressable style = {styles.SignupButton} onPress = {() => navigation.navigate('Sign Up')}>
+            <Pressable style = {styles.SignupButton} onPress = {() => navigation.navigate("Sign Up")}>
                 <Text style = {styles.SignupText}>Sign Up</Text>
             </Pressable>
         </View>

@@ -4,12 +4,12 @@ import theme from '../../assets/themes';
 import { NavigationContainer } from '@react-navigation/native';
 import TabNavigator from '../navigation/TabNavigator';
 
-const Profile = () => {
+const Messages = () => {
     return (
         <View>
-            <Text>PROFILE PAGE</Text>
+            <Text>MESSAGES PAGE</Text>
         </View>
     )
 }
 
-export default Profile;
+export default Messages;
