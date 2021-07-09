@@ -11,6 +11,7 @@ const SignUp = ({navigation}) => {
     return (
         <KeyboardAvoidingWrapper>
             <View>
+                
                 <View style = {styles.StyledContainer}>
                     <View style = {styles.InnerContainer}>
                         <Image style = {styles.PageLogo} resizeMode = "cover" source = {require('./../../assets/images/logo.png')} />
