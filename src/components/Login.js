@@ -5,6 +5,7 @@ import { Formik } from 'formik';
 import { Octicons, Fontisto } from '@expo/vector-icons';
 import Separator from './Separator';
 import KeyBoardAvoidingWrapper from './KeyboardAvoidingWrapper';
+import firebase from 'firebase';
 
 const Login = ({navigation}) => {
     return (
@@ -21,8 +22,13 @@ const Login = ({navigation}) => {
                 <Formik
                 initialValues = {{email: '', password: ''}}
                 onSubmit = {(values) => {
-                    console.log(values);
-                    navigation.navigate('Feed');
+                    firebase.auth().signInWithEmailAndPassword(values.email, values.password)
+                    .then((result) => {
+                        navigation.navigate('Feed');
+                    })
+                    .catch((error) => {
+                        console.log(error)
+                    })
                 }}
                 >
                     {({handleChange, handleBlur, handleSubmit, values}) => (

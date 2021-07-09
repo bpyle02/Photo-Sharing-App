@@ -5,6 +5,7 @@ import { Formik } from 'formik';
 import { Octicons } from '@expo/vector-icons';
 import Separator from './Separator';
 import KeyboardAvoidingWrapper from './KeyboardAvoidingWrapper';
+import firebase from 'firebase';
 
 const SignUp = ({navigation}) => {
     return (
@@ -19,10 +20,23 @@ const SignUp = ({navigation}) => {
                 </View>
 
                 <Formik
-                initialValues = {{fullname: '', email: '', username: '', password: '', confirmPassword: ''}}
+                initialValues = {{fullName: '', email: '', username: '', password: '', confirmPassword: ''}}
                 onSubmit = {(values) => {
-                    console.log(values);
-                    navigation.navigate('Signup Options')
+                    firebase.auth().createUserWithEmailAndPassword(values.email, values.password)
+                    .then((result) => {
+                        firebase.firestore().collection("users")
+                            .doc(firebase.auth().currentUser.uid)
+                            .set({
+                                fullName: values.fullName,
+                                email: values.email,
+                                username: values.username,
+                                password: values.password,
+                            })
+                        navigation.navigate('Signup Options')
+                    })
+                    .catch((error) => {
+                        console.log(error)
+                    })
                 }}
                 >
                     {({handleChange, handleBlur, handleSubmit, values}) => (
@@ -102,6 +116,10 @@ const SignUp = ({navigation}) => {
         </KeyboardAvoidingWrapper>
     );
 };
+
+const onSignUp = ({values}) => {
+    console.log(values);
+}
 
 const MyTextInput = ({label, icon, ...props}) => {
     return (

@@ -4,7 +4,6 @@ import theme from '../../assets/themes';
 import { Formik } from 'formik';
 import { Octicons } from '@expo/vector-icons';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import { NavigationContainer } from '@react-navigation/native';
 
 const SignupOptions = ({navigation}) => {
 

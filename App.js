@@ -8,6 +8,22 @@ import { useFonts, Nunito_400Regular as NunitoRegular, Nunito_700Bold as NunitoB
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import Navigator from './src/navigation/index';
 
+import * as firebase from "firebase";
+// Your web app's Firebase configuration
+var firebaseConfig = {
+  apiKey: "AIzaSyB1TxcRpLQq0Zqs0f0FvPitIto0tZo_0xM",
+  authDomain: "shutter-42e70.firebaseapp.com",
+  projectId: "shutter-42e70",
+  storageBucket: "shutter-42e70.appspot.com",
+  messagingSenderId: "149059508529",
+  appId: "1:149059508529:web:0dbc5bbbb75bf022ef7810"
+};
+
+if (firebase.apps.length === 0) {
+  firebase.initializeApp(firebaseConfig);
+}
+
+
 // The theme we'll be using for our navigator
 const MyTheme = {
   ...DefaultTheme,
@@ -23,6 +39,7 @@ function cacheFonts(fonts) {
 }
 
 export default function App() {
+
   const [assetsReady, setAssetsReady] = useState(false);
 
   async function _loadFonts() {

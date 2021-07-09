@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "149059508529",
+    "project_id": "shutter-42e70",
+    "storage_bucket": "shutter-42e70.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:149059508529:android:8cb97fb45133ba65ef7810",
+        "android_client_info": {
+          "package_name": "com.shutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "149059508529-jch743mkm4c07rk2109uj74b85fipsth.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1F5z7YrBskc60UKiv9jcyeUDAbI07T60"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "149059508529-jch743mkm4c07rk2109uj74b85fipsth.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

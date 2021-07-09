@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image, Pressable } from 'react-native';
 import theme from '../../assets/themes';
-import { LoginScreenNavigator } from '../navigation';
 
 const Welcome = ({navigation}) => {
+
     return (
         <View style = {styles.StyledContainer}>
             <View style = {styles.InnerContainer}>
