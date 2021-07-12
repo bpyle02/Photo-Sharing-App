@@ -4,10 +4,21 @@ import theme from '../../assets/themes';
 
 const Profile = () => {
     return (
-        <View>
-            <Text>PROFILE PAGE</Text>
+        <View style = {styles.title}>
+            <Text style = {styles.titleText}>PROFILE PAGE</Text>
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    title: {
+        marginVertical: 380,
+        alignItems: 'center'
+    },
+    titleText: {
+        ...theme.textVariants.h1,
+        color: theme.colors.black,
+    }
+})
 
 export default Profile;

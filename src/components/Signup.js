@@ -7,6 +7,8 @@ import Separator from './Separator';
 import KeyboardAvoidingWrapper from './KeyboardAvoidingWrapper';
 import firebase from 'firebase';
 
+var errorMsg = '...'
+
 const SignUp = ({navigation}) => {
     return (
         <KeyboardAvoidingWrapper>
@@ -29,14 +31,17 @@ const SignUp = ({navigation}) => {
                             .doc(firebase.auth().currentUser.uid)
                             .set({
                                 fullName: values.fullName,
-                                email: values.email,
+                                displayName: values.email,
                                 username: values.username,
                                 password: values.password,
                             })
-                        navigation.navigate('Signup Options')
+                        if (values.password === values.confirmPassword)
+                            navigation.navigate('Signup Options')
+                        else
+                            errorMsg = 'Passwords do not match'
                     })
                     .catch((error) => {
-                        console.log(error)
+                        alert(error)
                     })
                 }}
                 >
@@ -96,7 +101,7 @@ const SignUp = ({navigation}) => {
                                 secureTextEntry = {true}
                             />
 
-                            <Text style = {styles.msgBox}>...</Text>
+                            <Text style = {styles.msgBox}>{errorMsg}</Text>
 
                             <TouchableOpacity onPress = {handleSubmit} style = {styles.loginButton}>
                                 <Text style = {styles.loginButtonText}>Sign Up</Text>

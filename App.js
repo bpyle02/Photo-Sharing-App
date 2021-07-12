@@ -9,6 +9,7 @@ import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import Navigator from './src/navigation/index';
 
 import * as firebase from "firebase";
+import "firebase/auth";
 // Your web app's Firebase configuration
 var firebaseConfig = {
   apiKey: "AIzaSyB1TxcRpLQq0Zqs0f0FvPitIto0tZo_0xM",
@@ -22,7 +23,6 @@ var firebaseConfig = {
 if (firebase.apps.length === 0) {
   firebase.initializeApp(firebaseConfig);
 }
-
 
 // The theme we'll be using for our navigator
 const MyTheme = {
@@ -65,5 +65,5 @@ export default function App() {
     <NavigationContainer theme={MyTheme}>
       <Navigator />
     </NavigationContainer>
-  )
+  );
 }

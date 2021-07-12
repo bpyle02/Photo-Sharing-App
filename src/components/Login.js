@@ -7,6 +7,8 @@ import Separator from './Separator';
 import KeyBoardAvoidingWrapper from './KeyboardAvoidingWrapper';
 import firebase from 'firebase';
 
+var errorMsg = '...'
+
 const Login = ({navigation}) => {
     return (
         <KeyBoardAvoidingWrapper>
@@ -20,14 +22,14 @@ const Login = ({navigation}) => {
                 </View>
 
                 <Formik
-                initialValues = {{email: '', password: ''}}
-                onSubmit = {(values) => {
-                    firebase.auth().signInWithEmailAndPassword(values.email, values.password)
-                    .then((result) => {
-                        navigation.navigate('Feed');
-                    })
-                    .catch((error) => {
-                        console.log(error)
+                    initialValues = {{email: '', password: ''}}
+                    onSubmit = {(values) => {
+                        firebase.auth().signInWithEmailAndPassword(values.email, values.password)
+                        .then((result) => {
+                            navigation.navigate('Feed');
+                        })
+                        .catch((error) => {
+                            alert(error)
                     })
                 }}
                 >
@@ -55,7 +57,7 @@ const Login = ({navigation}) => {
                                 secureTextEntry = {true}
                             />
 
-                            <Text style = {styles.msgBox}>...</Text>
+                            <Text style = {styles.msgBox}>{errorMsg}</Text>
 
                             <TouchableOpacity onPress = {handleSubmit} style = {styles.loginButton}>
                                 <Text style = {styles.loginButtonText}>Login</Text>

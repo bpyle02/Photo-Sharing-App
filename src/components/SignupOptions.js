@@ -4,6 +4,7 @@ import theme from '../../assets/themes';
 import { Formik } from 'formik';
 import { Octicons } from '@expo/vector-icons';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import firebase from 'firebase';
 
 const SignupOptions = ({navigation}) => {
 
@@ -12,7 +13,7 @@ const SignupOptions = ({navigation}) => {
 
     const [dob, setdob] = useState();
     const onChange = (event, selectedDate) => {
-        const surrentDate = selectedDate || date;
+        const currentDate = selectedDate || date;
         setShow(false);
         setDate(currentDate);
         setdob(currentDate);
@@ -45,7 +46,11 @@ const SignupOptions = ({navigation}) => {
             <Formik
             initialValues = {{phone: '', DOB: ''}}
             onSubmit = {(values) => {
-                console.log(values);
+                firebase.firestore().collection("users").doc(firebase.auth().currentUser.uid).set({
+                    phoneNumber: values.phone,
+                    dateOfBirth: values.DOB,
+                })
+                console.log('done')
                 navigation.navigate('Profile')
             }}
             >
